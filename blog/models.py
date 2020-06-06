@@ -19,6 +19,7 @@ class Post(models.Model):
     body = models.TextField() 
     category = models.ForeignKey(Category, blank=True , null=True, default=None, on_delete=models.CASCADE)
     added_by = models.ForeignKey(User, blank=True , null=True, default=None, on_delete=models.CASCADE)
+    no_of_view = models.IntegerField(default=0)
 
     class Meta:
         verbose_name = "Post"

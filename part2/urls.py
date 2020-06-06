@@ -15,8 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from blog.views import view_post
+from blog.views import view_post,ProtectedPostsView,PostList,PostDetail
+from django.views.generic import TemplateView
+ 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/', view_post),
+    path('blog/', view_post), 
+    path('blog/posts/', TemplateView.as_view(template_name='frontend/posts.html') ),
+    path('blog/secret-posts/', ProtectedPostsView.as_view()),  
+    path('blog/listview-posts/', PostList.as_view()), 
+    path('blog/details-posts/<int:pk>/', PostDetail.as_view()), 
 ]
