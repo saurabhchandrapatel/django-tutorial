@@ -35,8 +35,10 @@ MIDDLEWARE = [
 
 
 AUTHENTICATION_BACKENDS = (
+    'blog.views.OTPBackend',
     'django.contrib.auth.backends.ModelBackend', # this is default
     'guardian.backends.ObjectPermissionBackend',
+
 )
 
 
@@ -110,5 +112,3 @@ EMAIL_HOST_PASSWORD = 'SG.FEn5-F7TTOykZ9iAFGjkAA.oMbp5n2fArnKZ2yKhbOtp44YCPjiTVO
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
- 
-
